@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>Trainingscircuit</title>
+<style>
+  body {
+    background: #111;
+    color: white;
+    font-family: "Segoe UI", sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    position: absolute;
+    width: 1000px;
+    height: 700px;
+    border-radius: 50%;
+  }
+  .buttons {
+    position: absolute; 
+    width: 1000px;
+    height: 700px;
+  }
+  .btn {
+    position: absolute;
+    width: 120px;
+    padding: 10px;
+    background: #ebc9c9;
+    border: 2px solid #1100ff;
+    border-radius: 8px;
+    color: #000000;
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    transition: background-color 0.3s;
+    z-index: 1;
+  }
+  .btn:hover {
+    background: #ffacdc;
+    color: #e22504;
+  }
+  /* Расположение кнопок по кругу */
+.btn1  { top: 10%;  left: 47.5%; }  /* верхняя */
+.btn2  { top: 18%;  left: 70%; }
+.btn3  { top: 30%;  left: 82%; }
+.btn4  { top: 45%;  left: 88%; }
+.btn5  { top: 60%;  left: 82%; }
+.btn6  { top: 70%;  left: 70%; }
+.btn7  { top: 78%;  left: 55%; }
+.btn8  { top: 78%;  left: 40%; }  /* две нижние кнопки рядом */
+.btn9  { top: 70%;  left: 25%; }
+.btn10 { top: 60%;  left: 13%; }
+.btn11 { top: 45%;  left: 7%; }
+.btn12 { top: 30%;  left: 13%; }
+.btn13 { top: 18%;  left: 25%; }
+
+ 
+  .video-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 440px;
+    background: #000;
+    border: 3px solid #00e676;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #00e676;
+    transform: translate(-50%, -50%);
+    display: none; 
+    flex-direction: column;
+    z-index: 10;
+  }
+  .video-popup iframe {
+    width: 100%;
+    height: 248px; /* 16:9 */
+    border: none;
+    border-radius: 12px 12px 0 0;
+  }
+  .description {
+    padding: 15px 20px;
+    color: #ffffff;
+    font-size: 1em;
+    background: rgba(0, 230, 118, 0.1);
+    border-radius: 0 0 12px 12px;
+    min-height: 60px;
+    text-align: center;
+  }
+  .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: #00e676;
+    color: #111;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .close-btn:hover {
+    background: #33ff88;
+  }
+
+  .text {
+    position: absolute;
+    top: 50%; left: 40%;
+    font-size: 30px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="buttons">
+    <div class="btn btn1" onclick="openVideo('1D_tsUSW3ZY', 'Der Side Lunge ist eine Übung, bei der ein weiter Schritt zur Seite gemacht wird, wobei ein Bein im Knie gebeugt wird, während das andere gerade bleibt. Anschließend kehrt man in die Ausgangsposition zurück.')">Side Lunge. Station 1</div>
+    <div class="btn btn2" onclick="openVideo('b3e9rENJGCE', 'Der Reverse Snow Angel ist eine Übung, bei der man in Bauchlage liegt und Arme sowie Beine sanft zur Seite und wieder zusammenführt – ähnlich der Bewegung eines „Schneeengels“, jedoch in umgekehrter Position.')">Reverse Snow Angel. Station 2</div>
+    <div class="btn btn3" onclick="openVideo('QOCn3_iOAro', 'Der Plank Shoulder Taps ist eine Übung in der Plank-Position, bei der man abwechselnd die gegenüberliegenden Schultern berührt und dabei versucht, den Oberkörper stabil und unbewegt zu halten.')">Plank Shoulder Taps. Station 3</div>
+    <div class="btn btn4" onclick="openVideo('7GKXPkPKlI0', 'Medicine Ball Push-Ups sind eine Variante der Liegestütze, bei der die Hände auf einem Medizinball (oder eine Hand auf dem Ball, die andere auf dem Boden) platziert werden. Der Körper wird dabei abgesenkt und wieder angehoben, während Stabilität und Balance gehalten werden.')">Medicine Ball Push Ups. Station 4</div>
+    <div class="btn btn5" onclick="openVideo('TbcCeguuv_4', 'Backpack Bent Over Row ist eine Übung, bei der man sich mit geradem Rücken nach vorne beugt, einen Rucksack mit beiden Händen greift und ihn zum Bauch zieht, um ihn anschließend wieder abzusenken.')">Backpack Bent Over Row. Station 5</div>
+    <div class="btn btn6" onclick="openVideo('cruqsnAyU6A', 'Weighted Glute Bridge ist eine Übung, bei der man auf dem Rücken liegt, die Knie anwinkelt, ein Gewicht auf das Becken legt und dieses nach oben hebt, bevor man es wieder absenkt.')">Weighted Glute Bridge. Station 6</div>
+    <div class="btn btn7" onclick="openVideo('keSzg7MaoVQ', 'Single Leg Squat (Pistol Squat) ist eine Kniebeuge auf einem Bein, bei der das andere Bein nach vorne ausgestreckt wird, der Körper abgesenkt und anschließend wieder in die Ausgangsposition zurückgeführt wird.')">Single Leg Squat (Pistol Squat). Station 7</div>
+    <div class="btn btn8" onclick="openVideo('eERwCQHZqfA', 'Bar Dips sind eine Übung, bei der man sich an zwei parallelen Stangen abstützt, den Körper durch Beugen der Ellenbogen absenkt und anschließend wieder nach oben drückt.')">Bar Dips. Station 8</div>
+    <div class="btn btn9" onclick="openVideo('QBlYp-EwHlo', 'Decline Push-Ups sind Liegestütze mit erhöhter Fußposition, bei denen der Körper abgesenkt und wieder angehoben wird, während eine gerade Linie von Kopf bis zu den Fersen gehalten wird.')">Decline Push-Ups. Station 9</div>
+    <div class="btn btn10" onclick="openVideo('X7NtgY9kCCM', 'Shoulder Rolls sind eine Übung, bei der die Schultern in kreisenden Bewegungen zu den Ohren gehoben und anschließend nach hinten oder vorne gesenkt werden.')">Shoulder Rolls. Station 10</div>
+    <div class="btn btn11" onclick="openVideo('BzPzDuIn1PA', 'Biceps Wall Stretch ist eine Dehnung, bei der eine Hand auf Schulterhöhe an die Wand gelegt wird und der Körper in die entgegengesetzte Richtung gedreht wird, sodass eine Spannung im Bizeps spürbar ist.')">Biceps Wall Stretch. Station 11</div>
+    <div class="btn btn12" onclick="openVideo('9lWHSXdrT0E', 'Cat-Cow Stretch ist eine Dehnübung für die Wirbelsäule, die im Vierfüßlerstand ausgeführt wird, wobei der Rücken abwechselnd nach unten durchhängt (Cow) und nach oben rundet (Cat).')">Cat-Cow Stretch. Station 12</div>
+    <div class="btn btn13" onclick="openVideo('YBV6d5TluFA', 'Deep Glute Stretch ist eine Dehnung der Gesäßmuskulatur, bei der ein Bein angewinkelt und zur Brust oder über das andere Bein gezogen wird, um die Dehnung im Gesäßbereich zu spüren.')">Deep Glute Stretch. Station 13</div>
+  </div>
+</div>
+
+<!-- Попап видео -->
+<div class="video-popup" id="video-popup">
+  <button class="close-btn" onclick="closeVideo()">×</button>
+  <iframe id="video-iframe" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <div class="description" id="video-description"></div>
+</div>
+
+<div class="text" id="text">
+  Wählen Sie eine Übung aus!
+</div>
+
+<script>
+  function openVideo(videoId, description) {
+    const popup = document.getElementById('video-popup');
+    const iframe = document.getElementById('video-iframe');
+    const desc = document.getElementById('video-description');
+
+    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+    desc.textContent = description;
+    popup.style.display = 'flex';
+  }
+
+  function closeVideo() {
+    const popup = document.getElementById('video-popup');
+    const iframe = document.getElementById('video-iframe');
+
+    iframe.src = ''; // остановить видео
+    popup.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
